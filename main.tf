@@ -15,7 +15,7 @@ module "aws_lambda_function" {
 
   label_context = module.label.context
 
-  lambda_zipname     = var.lambda_zipname
+  lambda_zipname     = local.lambda_zipname_effective_value
   lambda_s3_bucket   = var.lambda_s3_bucket
   lambda_s3_key      = var.lambda_s3_key
   lambda_role_arn    = aws_iam_role.autospotting_role.arn

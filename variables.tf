@@ -95,6 +95,11 @@ EOF
 }
 
 # Lambda configuration
+locals {
+  # If a lambda_zipname variable is set other than the default use that, if the
+  lambda_zipname_effective_value = var.lambda_zipname == "package/autospotting.zip" ? "${path.module}/modules/lambda/${var.lambda_zipname}" : var.lambda_zipname
+}
+
 variable "lambda_zipname" {
   description = "Name of the archive, relative to the module"
   default     = "package/autospotting.zip"
